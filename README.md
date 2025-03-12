@@ -13,7 +13,7 @@ This guide will help you maintain and customize the AI Bitcoin landing page. It'
 ### Header Section
 The header contains the logo and navigation menu. To modify:
 
-1. **Logo Text**: Find this line and change "AI Bitcoin":
+1. **Logo Text**: Find this line and change "Bitcoin AI Profits":
 ```html
 <div class="text-2xl font-bold text-blue-600">AI Bitcoin</div>
 ```
