@@ -31,10 +31,10 @@ The header contains the logo and navigation menu. To modify:
 Update the main headline and subheading:
 ```html
 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-    This AI System Sends 100% Bitcoin Commissions Straight to Your Wallet-Instantly
+    This AI System Sends 100% Bitcoin Commissions Straight to Your Wallet-Instantly!
 </h1>
 <p class="text-xl md:text-2xl text-gray-600 mb-12">
-    The Easiest and Fastest Way to Accumulate Bitcoin daily!
+    The Easiest and Fastest Way to Accumulate Bitcoin daily 🔥
 </p>
 ```
 
