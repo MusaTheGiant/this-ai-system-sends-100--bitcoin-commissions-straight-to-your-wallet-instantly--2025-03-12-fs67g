@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how AI is transforming Bitcoin earnings with innovative passive income strategies. Learn about cutting-edge methods to generate Bitcoin commissions instantly and effortlessly.">
+    <title>AI-Powered Bitcoin Earnings: The Future of Passive Income in 2025</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Tailwind CSS and Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Add favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph tags for better social sharing -->
+    <meta property="og:title" content="AI-Powered Bitcoin Earnings: The Future of Passive Income in 2025">
+    <meta property="og:description" content="Discover how AI is transforming Bitcoin earnings with innovative passive income strategies. Learn about cutting-edge methods to generate Bitcoin commissions instantly and effortlessly.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=675&fit=crop">
+    <meta property="og:url" content="https://musathegiant.github.io/ai-bitcoin-passive-income-2025">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="Bitcoin, AI, Passive Income, Cryptocurrency, Online Earnings, Digital Marketing, Affiliate Marketing">
+    
+    <!-- Custom CSS to fix potential layout issues -->
+    <style>
+        html, body {
+            scroll-behavior: smooth;
+        }
+        #back-to-top {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-800">
+    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <nav class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">AI Bitcoin Insights</a>
+                <a href="#" class="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Rest of the content remains the same -->
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        // Ensure Tailwind CSS is loaded before running scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            if (backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.remove('opacity-0', 'invisible');
+                        backToTopButton.classList.add('opacity-100', 'visible');
+                    } else {
+                        backToTopButton.classList.add('opacity-0', 'invisible');
+                        backToTopButton.classList.remove('opacity-100', 'visible');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Share button functionality (placeholder)
+            const shareButtons = document.querySelectorAll('.share-button');
+            shareButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Share functionality to be implemented');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
