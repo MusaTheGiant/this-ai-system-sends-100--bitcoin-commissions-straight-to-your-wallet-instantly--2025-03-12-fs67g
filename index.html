@@ -430,6 +430,106 @@
             }
         });
     </script>
+
+    <!-- Add this to the bottom of your page, right before the closing </body> tag -->
+
+<!-- Popup Form Overlay -->
+<div id="formPopup" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center">
+  <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 relative transform transition-all duration-300 scale-95 opacity-0" id="formContainer">
+    <!-- Close button -->
+    <button id="closePopup" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+      <i class="fas fa-times text-xl"></i>
+    </button>
+    
+    <!-- Form heading -->
+    <h2 class="text-3xl font-bold text-center text-blue-600 mb-6 animate-pulse">Earn 100% Instant Bitcoin Commissions!</h2>
+    
+    <!-- Lead capture form -->
+    <form method="POST" action="https://gogvo.com/subscribe.php" class="space-y-6">
+      <input type="hidden" name="AffiliateName" value="realmtgNLS">
+      <input type="hidden" name="CampaignCode" value="478ssFi7U3bi">
+      <input type="hidden" name="TrackParam" value="new_form">
+      <input type="hidden" name="FormId" value="24670978">
+      
+      <div class="space-y-4">
+        <div>
+          <label for="firstname" class="block text-gray-700 font-medium mb-1">First Name:</label>
+          <input type="text" name="FirstName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" required>
+        </div>
+        
+        <div>
+          <label for="email" class="block text-gray-700 font-medium mb-1">Enter your best email:</label>
+          <input type="email" name="Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" required>
+        </div>
+      </div>
+      
+      <div class="pt-4">
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 animate-bounce">
+          SHOW ME HOW IT WORKS! 👈
+        </button>
+      </div>
+      
+      <p class="text-center text-gray-600 mt-3 text-sm">Check Spam/Promotions for your confirmation</p>
+    </form>
+    
+    <img src="https://gogvo.com/show_form.php?id=24670978&TrackParam=new_form" style="display:none;">
+  </div>
+</div>
+
+<!-- Add this script to the bottom of your page -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all CTA buttons that should trigger the popup
+  const ctaButtons = document.querySelectorAll('a[href*="go.e1ulife.com"]');
+  const popup = document.getElementById('formPopup');
+  const formContainer = document.getElementById('formContainer');
+  const closeButton = document.getElementById('closePopup');
+  
+  // Function to open popup
+  function openPopup(e) {
+    e.preventDefault(); // Prevent default link behavior
+    
+    // Show the popup
+    popup.classList.remove('hidden');
+    
+    // Animate in the form
+    setTimeout(() => {
+      formContainer.classList.remove('scale-95', 'opacity-0');
+      formContainer.classList.add('scale-100', 'opacity-100');
+    }, 10);
+    
+    return false;
+  }
+  
+  // Function to close popup
+  function closePopup() {
+    // Animate out
+    formContainer.classList.remove('scale-100', 'opacity-100');
+    formContainer.classList.add('scale-95', 'opacity-0');
+    
+    // Hide the popup after animation
+    setTimeout(() => {
+      popup.classList.add('hidden');
+    }, 300);
+  }
+  
+  // Attach click event to all CTA buttons
+  ctaButtons.forEach(button => {
+    button.addEventListener('click', openPopup);
+  });
+  
+  // Close popup when clicking close button
+  closeButton.addEventListener('click', closePopup);
+  
+  // Close popup when clicking outside the form
+  popup.addEventListener('click', function(e) {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+});
+</script>
+    
 </body>
 </body>
 </html>
