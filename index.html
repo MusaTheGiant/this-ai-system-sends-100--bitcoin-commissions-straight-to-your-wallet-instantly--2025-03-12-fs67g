@@ -431,53 +431,7 @@
         });
     </script>
 
-    <!-- Add this to the bottom of your page, right before the closing </body> tag -->
-
-<!-- Popup Form Overlay -->
-<div id="formPopup" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center">
-  <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 relative transform transition-all duration-300 scale-95 opacity-0" id="formContainer">
-    <!-- Close button -->
-    <button id="closePopup" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-      <i class="fas fa-times text-xl"></i>
-    </button>
-    
-    <!-- Form heading -->
-    <h2 class="text-3xl font-bold text-center text-blue-600 mb-6 animate-pulse">Earn 100% Instant Bitcoin Commissions!</h2>
-    
-    <!-- Lead capture form -->
-    <form method="POST" action="https://gogvo.com/subscribe.php" class="space-y-6">
-      <input type="hidden" name="AffiliateName" value="realmtgNLS">
-      <input type="hidden" name="CampaignCode" value="478ssFi7U3bi">
-      <input type="hidden" name="TrackParam" value="new_form">
-      <input type="hidden" name="FormId" value="24670978">
-      
-      <div class="space-y-4">
-        <div>
-          <label for="firstname" class="block text-gray-700 font-medium mb-1">First Name:</label>
-          <input type="text" name="FirstName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" required>
-        </div>
-        
-        <div>
-          <label for="email" class="block text-gray-700 font-medium mb-1">Enter your best email:</label>
-          <input type="email" name="Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" required>
-        </div>
-      </div>
-      
-      <div class="pt-4">
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 animate-bounce">
-          SHOW ME HOW IT WORKS! 👈
-        </button>
-      </div>
-      
-      <p class="text-center text-red-600 mt-3 text-sm">⚠️ Check Spam, Promotions, or Junk folder.</p>
-    </form>
-    
-    <img src="https://gogvo.com/show_form.php?id=24670978&TrackParam=new_form" style="display:none;">
-  </div>
-</div>
-
-<!-- Add this script to the bottom of your page -->
-<script>
+   // Add this script to the bottom of your page, right before the closing </body> tag
 document.addEventListener('DOMContentLoaded', function() {
   // Get all CTA buttons that should trigger the popup
   const ctaButtons = document.querySelectorAll('a[href*="go.e1ulife.com"]');
@@ -485,12 +439,54 @@ document.addEventListener('DOMContentLoaded', function() {
   const formContainer = document.getElementById('formContainer');
   const closeButton = document.getElementById('closePopup');
   
+  // Update close button color to red
+  if (closeButton) {
+    closeButton.classList.remove('text-gray-500', 'hover:text-gray-700');
+    closeButton.classList.add('text-red-600', 'hover:text-red-800');
+  }
+  
+  // Flag to track if popup has been shown
+  let popupShown = false;
+  
+  // Store if the visitor has clicked on a CTA button
+  let ctaClicked = false;
+  
+  // Set cookie for tracking popup display
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+  
+  // Get cookie value
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+  
   // Function to open popup
   function openPopup(e) {
-    e.preventDefault(); // Prevent default link behavior
+    if (e) {
+      e.preventDefault(); // Prevent default link behavior
+      ctaClicked = true;
+    }
     
     // Show the popup
     popup.classList.remove('hidden');
+    popupShown = true;
+    
+    // Set cookie to remember popup was shown
+    setCookie('formPopupShown', 'true', 1); // Cookie expires in 1 day
     
     // Animate in the form
     setTimeout(() => {
@@ -525,6 +521,87 @@ document.addEventListener('DOMContentLoaded', function() {
   popup.addEventListener('click', function(e) {
     if (e.target === popup) {
       closePopup();
+    }
+  });
+  
+  // Exit intent detection for desktop
+  document.addEventListener('mouseleave', function(e) {
+    // Only trigger if the mouse leaves from the top of the page
+    if (e.clientY <= 0 && !popupShown && !ctaClicked && !getCookie('formPopupShown')) {
+      openPopup();
+    }
+  });
+  
+  // For mobile devices: detect when user is about to leave
+  let lastScrollTop = 0;
+  let scrollDirection = '';
+  const scrollThreshold = 30; // Number of pixels to determine scroll direction
+  let rapidScrollUp = false;
+  
+  // Handle scroll events for mobile exit intent
+  window.addEventListener('scroll', function() {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Determine scroll direction
+    if (st > lastScrollTop) {
+      // Scrolling down
+      if (scrollDirection === 'up') {
+        scrollDirection = 'down';
+      }
+    } else {
+      // Scrolling up
+      if (scrollDirection === 'down') {
+        scrollDirection = 'up';
+        
+        // Check if scrolling up rapidly (potential exit intent on mobile)
+        if (lastScrollTop - st > scrollThreshold) {
+          rapidScrollUp = true;
+        }
+      }
+    }
+    
+    // If rapid scroll up detected near the top of the page (< 300px from top)
+    if (rapidScrollUp && st < 300 && !popupShown && !ctaClicked && !getCookie('formPopupShown')) {
+      openPopup();
+      rapidScrollUp = false;
+    }
+    
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  }, false);
+  
+  // Check if user has been inactive for a while (another exit intent signal)
+  let inactivityTime = 60000; // 60 seconds
+  let inactivityTimer;
+  
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(function() {
+      if (!popupShown && !ctaClicked && !getCookie('formPopupShown') && document.visibilityState === 'visible') {
+        openPopup();
+      }
+    }, inactivityTime);
+  }
+  
+  // Reset timer on user activity
+  ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(function(event) {
+    document.addEventListener(event, resetInactivityTimer, true);
+  });
+  
+  // Start timer
+  resetInactivityTimer();
+  
+  // Handle visibility change (tab switching, etc.)
+  let visibilityChangeTimer;
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+      clearTimeout(visibilityChangeTimer);
+      // User is leaving the page - set a timer
+      visibilityChangeTimer = setTimeout(function() {
+        // If they come back after a delay, show popup
+        if (document.visibilityState === 'visible' && !popupShown && !ctaClicked && !getCookie('formPopupShown')) {
+          openPopup();
+        }
+      }, 3000); // 3 second delay
     }
   });
 });
