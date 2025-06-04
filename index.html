@@ -8,19 +8,49 @@
     <link rel="icon" type="image/jpg" href="images/favicon.jpg"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        th, td {
+            border: 1px solid #374151;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f3f4f6;
+            font-weight: bold;
+        }
+        .center-section h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+    </style>
 </head>
 <body class="font-sans antialiased bg-gray-50">
     <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="https://MusaTheGiant.github.io/this-ai-system-sends-100--bitcoin-commissions-straight-to-your-wallet-instantly--2025-03-12-fs67g" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">Bitcoin AI Profit System</a>
+                <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">
+                    Bitcoin AI Profit System
+                </a>
                 <div class="hidden md:flex space-x-8">
                     <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Features</a>
                     <a href="#benefits" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Benefits</a>
                     <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Testimonials</a>
                     <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">About</a>
                     <a href="#faq" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">FAQ</a>
-                    <a href="blog.html">Blog</a>
+                    <a href="blog.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Blog</a>
                 </div>
                 <button class="mobile-menu-button md:hidden" aria-label="Toggle menu">
                     <i class="fas fa-bars text-2xl"></i>
@@ -29,13 +59,13 @@
                     MORE INFO
                 </a>
             </div>
-            <div class="mobile-menu hidden md:hidden mt-4">
+            <div class="mobile-menu md:hidden mt-4">
                 <a href="#features" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors duration-300">Features</a>
                 <a href="#benefits" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors duration-300">Benefits</a>
                 <a href="#testimonials" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors duration-300">Testimonials</a>
                 <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors duration-300">About</a>
                 <a href="#faq" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors duration-300">FAQ</a>
-                <a href="blog.html">Blog</a>
+                <a href="blog.html" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors duration-300">Blog</a>
             </div>
         </nav>
     </header>
@@ -197,35 +227,9 @@
                     </p>
                 </div>
                 
-                <style>
-                    table {
-                        width: 40%;
-                        border-collapse: collapse;
-                        margin: 20px auto;
-                    }
-                    th, td {
-                        border: 1px solid #000;
-                        padding: 12px;
-                        text-align: center;
-                    }
-                    h1 {
-                        text-align: center;
-                    }
-                    .center-section {
-                        text-align: center;
-                        margin-top: 40px;
-                    }
-                </style>
-
-                <div class="center-section">
-                    <style>
-                        h1 {
-                            font-weight: bold;
-                            text-align: center;
-                        }
-                    </style>
-                    <h1>Credit Breakdown for Each Package</h1>
-                    <table>
+                <div class="center-section mt-16">
+                    <h1 class="text-3xl font-bold text-center text-gray-900 mb-8">Credit Breakdown for Each Package</h1>
+                    <table class="mx-auto">
                         <thead>
                             <tr>
                                 <th>Package Price</th>
@@ -350,56 +354,129 @@
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                    <p class="text-gray-400">Email: hustlewithmtg@gmail.com, WhatsApp: +27721714626</p>
-                </div>
-                <div>
+   <footer class="bg-gray-900 text-white mt-auto">
+            <div class="container mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Contact Section -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Contact Us</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-envelope text-orange-400"></i>
+                                <a href="mailto:hustlewithmtg@gmail.com" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">
+                                    hustlewithmtg@gmail.com
+                                </a>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-whatsapp text-orange-400"></i>
+                                <a href="https://wa.me/27721714626" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">
+                                    +27 72 171 4626
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-                     <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                    <p class="text-gray-400">Email: hustlewithmtg@gmail.com, WhatsApp: +27721714626</p>
+                    <!-- Quick Links Section -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#features" class="text-gray-300 hover:text-orange-400 transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>Features
+                            </a></li>
+                            <li><a href="#benefits" class="text-gray-300 hover:text-orange-400 transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>Benefits
+                            </a></li>
+                            <li><a href="#testimonials" class="text-gray-300 hover:text-orange-400 transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>Testimonials
+                            </a></li>
+                            <li><a href="#about" class="text-gray-300 hover:text-orange-400 transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>About
+                            </a></li>
+                            <li><a href="#faq" class="text-gray-300 hover:text-orange-400 transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>FAQ
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Legal Section -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Legal</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://MusaTheGiant.github.io/this-ai-system-sends-100--bitcoin-commissions-straight-to-your-wallet-instantly--2025-03-12-fs67g/privacy.html" 
+                                   class="text-gray-300 hover:text-orange-400 transition-colors duration-300 flex items-center">
+                                <i class="fas fa-shield-alt text-xs mr-2"></i>Privacy Policy
+                            </a></li>
+                            <li><a href="https://MusaTheGiant.github.io/this-ai-system-sends-100--bitcoin-commissions-straight-to-your-wallet-instantly--2025-03-12-fs67g/terms.html" 
+                                   class="text-gray-300 hover:text-orange-400 transition-colors duration-300 flex items-center">
+                                <i class="fas fa-file-contract text-xs mr-2"></i>Terms of Service
+                            </a></li>
+                            <li><a href="https://MusaTheGiant.github.io/this-ai-system-sends-100--bitcoin-commissions-straight-to-your-wallet-instantly--2025-03-12-fs67g/blog.html" 
+                                   class="text-gray-300 hover:text-orange-400 transition-colors duration-300 flex items-center">
+                                <i class="fas fa-blog text-xs mr-2"></i>Blog
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media Section -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Follow Us</h3>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://www.youtube.com/@E1ULifeAffiliates" target="_blank" 
+                               class="bg-gray-800 p-3 rounded-full text-gray-300 hover:text-white hover:bg-red-600 transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-youtube text-lg"></i>
+                            </a>
+                            <a href="https://whatsapp.com/channel/0029VaCz40V4dTnPD5xzpr0E" target="_blank" 
+                               class="bg-gray-800 p-3 rounded-full text-gray-300 hover:text-white hover:bg-green-600 transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                            </a>
+                            <a href="https://www.facebook.com/Musa.TheMTG" target="_blank" 
+                               class="bg-gray-800 p-3 rounded-full text-gray-300 hover:text-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-facebook-f text-lg"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@musathegiant" target="_blank" 
+                               class="bg-gray-800 p-3 rounded-full text-gray-300 hover:text-white hover:bg-pink-600 transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-tiktok text-lg"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- Newsletter Signup -->
+                        <div class="mt-6">
+                            <p class="text-sm text-gray-400 mb-3">Stay updated with Bitcoin AI insights</p>
+                            <div class="flex">
+                                <input type="email" placeholder="Your email" 
+                                       class="flex-1 px-3 py-2 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                <button class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-r-lg transition-colors duration-300">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors duration-300">Features</a></li>
-                        <li><a href="#benefits" class="text-gray-400 hover:text-white transition-colors duration-300">Benefits</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors duration-300">Testimonials</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="https://MusaTheGiant.github.io/this-ai-system-sends-100--bitcoin-commissions-straight-to-your-wallet-instantly--2025-03-12-fs67g/privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
-                        <li><a href="https://MusaTheGiant.github.io/this-ai-system-sends-100--bitcoin-commissions-straight-to-your-wallet-instantly--2025-03-12-fs67g/terms.html" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a></li>
-                        <li><a href="https://MusaTheGiant.github.io/this-ai-system-sends-100--bitcoin-commissions-straight-to-your-wallet-instantly--2025-03-12-fs67g/blog.html" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="https://www.youtube.com/@E1ULifeAffiliates" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110"><i class="fab fa-youtube"></i></a>
-                        <a href="https://whatsapp.com/channel/0029VaCz40V4dTnPD5xzpr0E" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.facebook.com/Musa.TheMTG" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.tiktok.com/@musathegiant" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110"><i class="fab fa-tiktok"></i></a>
+
+                <!-- Bottom Bar -->
+                <div class="border-t border-gray-800 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <div class="text-center md:text-left">
+                            <p class="text-gray-400">
+                                &copy; 2025 <span class="text-orange-400 font-semibold">Bitcoin AI Profit System</span>. All rights reserved.
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4 text-sm text-gray-400">
+                            <span class="flex items-center">
+                                <i class="fas fa-bitcoin text-orange-400 mr-1"></i>
+                                Powered by AI
+                            </span>
+                            <span class="hidden md:block">|</span>
+                            <span class="flex items-center">
+                                <i class="fas fa-lock text-green-400 mr-1"></i>
+                                Secure & Trusted
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 and beyond | Discover the Bitcoin AI Profit System. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
-</body>
+        </footer>
+        <!-- END OF FOOTER CODE -->
+    </div>
 </body>
 </html>
