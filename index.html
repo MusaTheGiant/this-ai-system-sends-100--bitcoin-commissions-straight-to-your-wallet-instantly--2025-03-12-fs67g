@@ -35,9 +35,205 @@
         .mobile-menu.active {
             display: block;
         }
+
+        /* ============================================
+           WEFI DEOBANK ANNOUNCEMENT BAR - FIXED TOP
+           World's First Deobank Promotion
+           ============================================ */
+        .giveaway-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #000000 0%, #0A0A0A 25%, #1A1A1A 75%, #000000 100%);
+            border-bottom: 3px solid #C7F160;
+            box-shadow: 0 4px 25px rgba(199, 241, 96, 0.3), 0 0 50px rgba(0, 255, 136, 0.15);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            animation: wefiGlow 3s ease-in-out infinite;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .giveaway-bar.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .giveaway-bar.dismissed {
+            opacity: 0;
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
+
+        @keyframes wefiGlow {
+            0%, 100% {
+                box-shadow: 0 4px 25px rgba(199, 241, 96, 0.3), 0 0 50px rgba(0, 255, 136, 0.15);
+                border-bottom-color: #C7F160;
+            }
+            50% {
+                box-shadow: 0 6px 35px rgba(199, 241, 96, 0.5), 0 0 60px rgba(0, 255, 136, 0.25), 0 0 80px rgba(0, 217, 255, 0.15);
+                border-bottom-color: #00FF88;
+            }
+        }
+
+        .giveaway-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .giveaway-text {
+            font-size: 15px;
+            font-weight: 400;
+            color: #ffffff;
+            text-align: center;
+            line-height: 1.4;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .giveaway-link {
+            color: #C7F160;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .giveaway-link:hover {
+            color: #00FF88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .giveaway-highlight {
+            color: #C7F160;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(199, 241, 96, 0.6), 0 0 30px rgba(0, 255, 136, 0.3);
+            animation: pulseWefi 2s ease-in-out infinite;
+            letter-spacing: 1px;
+        }
+
+        @keyframes pulseWefi {
+            0%, 100% {
+                text-shadow: 0 0 15px rgba(199, 241, 96, 0.6), 0 0 30px rgba(0, 255, 136, 0.3);
+                color: #C7F160;
+            }
+            50% {
+                text-shadow: 0 0 25px rgba(199, 241, 96, 0.9), 0 0 40px rgba(0, 255, 136, 0.5), 0 0 50px rgba(0, 217, 255, 0.3);
+                color: #00FF88;
+            }
+        }
+
+        .giveaway-close {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(199, 241, 96, 0.1);
+            border: 1px solid rgba(199, 241, 96, 0.3);
+            color: #C7F160;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 0;
+            font-weight: 700;
+        }
+
+        .giveaway-close:hover {
+            background: rgba(199, 241, 96, 0.2);
+            border-color: #00FF88;
+            color: #00FF88;
+            transform: translateY(-50%) rotate(90deg);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Body padding adjustment for fixed bar */
+        body.giveaway-active {
+            padding-top: 50px;
+        }
+
+        /* Push header down when announcement bar is active */
+        body.giveaway-active header {
+            top: 50px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .giveaway-bar {
+                padding: 8px 15px;
+            }
+            
+            .giveaway-content {
+                gap: 10px;
+            }
+            
+            .giveaway-text {
+                font-size: 13px;
+                letter-spacing: 0.2px;
+            }
+            
+            body.giveaway-active {
+                padding-top: 45px;
+            }
+            
+            body.giveaway-active header {
+                top: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .giveaway-bar {
+                padding: 6px 10px;
+            }
+            
+            .giveaway-text {
+                font-size: 12px;
+            }
+            
+            .giveaway-close {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+                right: 8px;
+            }
+            
+            body.giveaway-active {
+                padding-top: 40px;
+            }
+            
+            body.giveaway-active header {
+                top: 40px;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-gray-50">
+    <!-- WEFI DEOBANK ANNOUNCEMENT BAR -->
+    <div class="giveaway-bar" id="giveawayBar">
+        <div class="giveaway-content">
+            <div class="giveaway-text">
+                ⚡ <span class="giveaway-highlight">REVOLUTIONARY!</span> The World's First 🏦⛓️ <span class="giveaway-highlight">DEOBANK</span> Is 👉 <a href="https://www.deobankdefi.com" class="giveaway-link" target="_blank" rel="noopener noreferrer"><strong>HERE</strong></a> 👈
+            </div>
+        </div>
+        <button class="giveaway-close" id="closeGiveaway" aria-label="Close announcement">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
     <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -337,7 +533,7 @@
                     </div>
                     <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300 transform hover:scale-102">
                         <h3 class="text-xl font-bold text-gray-900 mb-2">How can I reach you?</h3>
-                        <p class="text-gray-600">My name is Musa TheGiant, but you can call me MTG 👑. I'm a professional affiliate marketer and Bitcoin lover, and I'm excited to connect with you! You can email me at hustlewithmtg@gmail.com or WhatsApp me at +27721714626 if you have any questions.</p>
+                        <p class="text-gray-600">My name is Musa TheGiant, but you can call me MTG 👑. I'm a professional affiliate marketer and Bitcoin lover, and I'm excited to connect with you! You can email me at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8fe7fafcfbe3eaf8e6fbe7e2fbe8cfe8e2eee6e3a1ece0e2">[email&#160;protected]</a> or WhatsApp me at +27721714626 if you have any questions.</p>
                     </div>
                 </div>
             </div>
@@ -363,8 +559,8 @@
                         <div class="space-y-3">
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-envelope text-orange-400"></i>
-                                <a href="mailto:hustlewithmtg@gmail.com" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">
-                                    hustlewithmtg@gmail.com
+                                <a href="/cdn-cgi/l/email-protection#79110c0a0d151c0e100d11140d1e391e14181015571a1614" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">
+                                    <span class="__cf_email__" data-cfemail="68001d1b1c040d1f011c00051c0f280f05090104460b0705">[email&#160;protected]</span>
                                 </a>
                             </div>
                            
@@ -464,14 +660,100 @@
                             <span class="hidden md:block">|</span>
                             <span class="flex items-center">
                                 <i class="fas fa-lock text-green-400 mr-1"></i>
-                                Secure & Trusted
+                                Secure Payment
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
-        <!-- END OF FOOTER CODE -->
     </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+        // WEFI DEOBANK ANNOUNCEMENT BAR FUNCTIONALITY
+        document.addEventListener('DOMContentLoaded', function() {
+            const giveawayBar = document.getElementById('giveawayBar');
+            const closeBtn = document.getElementById('closeGiveaway');
+            const body = document.body;
+            let lastScrollTop = 0;
+            let isBarDismissed = false;
+            
+            // Check if the bar has been dismissed before
+            const isDismissed = localStorage.getItem('wefiDeobankBarDismissed');
+            
+            if (isDismissed) {
+                isBarDismissed = true;
+            }
+            
+            if (!isDismissed) {
+                // Show the bar with animation after a short delay
+                setTimeout(function() {
+                    giveawayBar.classList.add('active');
+                    body.classList.add('giveaway-active');
+                }, 500);
+            }
+            
+            // Scroll behavior - hide/show announcement bar
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                // Don't run if bar was manually dismissed
+                if (isBarDismissed) return;
+                
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function() {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    // At top of page (within 100px)
+                    if (scrollTop < 100) {
+                        if (!giveawayBar.classList.contains('active')) {
+                            giveawayBar.classList.remove('dismissed');
+                            giveawayBar.classList.add('active');
+                            body.classList.add('giveaway-active');
+                        }
+                    }
+                    // Scrolling down
+                    else if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        if (giveawayBar.classList.contains('active')) {
+                            giveawayBar.classList.remove('active');
+                            giveawayBar.classList.add('dismissed');
+                            body.classList.remove('giveaway-active');
+                        }
+                    }
+                    
+                    lastScrollTop = scrollTop;
+                }, 100); // Debounce scroll events
+            });
+            
+            // Close button functionality - permanent dismissal
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    giveawayBar.classList.remove('active');
+                    giveawayBar.classList.add('dismissed');
+                    body.classList.remove('giveaway-active');
+                    isBarDismissed = true;
+                    
+                    // Remember that the user dismissed it permanently
+                    localStorage.setItem('wefiDeobankBarDismissed', 'true');
+                    
+                    // Remove from DOM after animation
+                    setTimeout(function() {
+                        giveawayBar.style.display = 'none';
+                    }, 500);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
